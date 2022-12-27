@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.disney</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>teams-common</artifactId>
+    <name>teams-common</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>teams-exception</module>
+        <module>teams-dao</module>
+        <module>teams-tps</module>
+        <module>teams-model</module>
+        <module>teams-utils</module>
+        <module>teams-cache</module>
+        <module>teams-mq</module>
+        <module>teams-locker</module>
+        <module>teams-log</module>
+    </modules>
+
+    <properties>
+        <module.version>1.0.0-SNAPSHOT</module.version>
+        <spring.version>5.3.15</spring.version>
+        <spring.boot.version>2.6.3</spring.boot.version>
+        
+        <junit.version>4.12</junit.version>
+        <jedis.version>4.3.1</jedis.version>
+        <slf4j.version>1.7.33</slf4j.version>
+        <fastjson.version>1.2.60</fastjson.version>
+        <aspect.version>1.9.7</aspect.version>
+        <spring.test.version>5.3.15</spring.test.version>
+        <tlog.version>1.5.0</tlog.version>
+        <log4j.version>2.17.1</log4j.version>
+        <lombok.version>1.18.24</lombok.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-exception</artifactId>
+                <version>${module.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-model</artifactId>
+                <version>${module.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-dao</artifactId>
+                <version>${module.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-utils</artifactId>
+                <version>${module.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-cache</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.disney</groupId>
+                <artifactId>teams-log</artifactId>
+                <version>${module.version}</version>
+            </dependency>
+
+            <!--  spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+
+            <!--cache-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspect.version}</version>
+            </dependency>
+
+
+            <!--log-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yomahub</groupId>
+                <artifactId>tlog-all-spring-boot-starter</artifactId>
+                <version>${tlog.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.test.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+
+
+    </dependencyManagement>
+    <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate.javax.persistence</groupId>-->
+<!--            <artifactId>hibernate-jpa-2.1-api</artifactId>-->
+<!--            <version>1.0.2.Final</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
+

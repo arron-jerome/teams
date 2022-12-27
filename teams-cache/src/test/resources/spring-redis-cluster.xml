@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       default-lazy-init="false"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:config.properties" ignore-unresolvable="true"/>
+
+    <!-- ======================================= maven dependency ======================================= -->
+
+    <!--<dependency>-->
+        <!--<groupId>redis.clients</groupId>-->
+        <!--<artifactId>jedis</artifactId>-->
+        <!--<version>2.8.2</version>-->
+    <!--</dependency>-->
+
+    <!-- ======================================= redis ======================================= -->
+
+    <bean id="redisCache" class="com.yhtframework.cache.impl.redis.RedisClusterCacheFactory">
+        <property name="servers" value="${redis.cluster.servers}"/>
+        <property name="serverId" value="${server.id}"/>
+        <property name="maxTotal" value="${redis.maxTotal}"/>
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="minIdle" value="${redis.minIdle}"/>
+        <property name="maxWaitMillis" value="${redis.maxWaitMills}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
+        <property name="connectionTimeout" value="${redis.connectionTimeout}"/>
+        <property name="soTimeout" value="${redis.soTimeout}"/>
+        <property name="maxRedirections" value="${redis.maxRedirections}"/>
+        <property name="password" value="${redis.password}" />
+    </bean>
+
+    <bean class="com.yhtframework.cache.impl.redis.utils.RedisCacheUtils">
+        <property name="cache" ref="redisCache" />
+    </bean>
+
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="logger" packages="com.disney">
+    <Appenders>
+        <RollingFile name="other" fileName="logs/other.json" filePattern="logs/other-%d{yyyy-MM-dd}.json" >
+            <DefaultLayout />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="rocketmq" fileName="logs/rocketmq.json" filePattern="logs/rocketmq-%d{yyyy-MM-dd}.json" >
+            <DefaultLayout />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="hibernate" fileName="logs/hibernate.json" filePattern="logs/hibernate-%d{yyyy-MM-dd}.json" >
+            <DefaultLayout />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="spring" fileName="logs/spring.json" filePattern="logs/spring-%d{yyyy-MM-dd}.json" >
+            <DefaultLayout />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="elasticsearch" fileName="logs/elasticsearch.json" filePattern="logs/elasticsearch-%d{yyyy-MM-dd}.json" >
+            <DefaultLayout />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="other"/>
+        </Root>
+        <Logger name="okhttp3" level="warn" additivity="false">
+            <AppenderRef ref="other"/>
+        </Logger>
+        <Logger name="org.springframework" level="warn" additivity="false">
+            <AppenderRef ref="spring"/>
+        </Logger>
+        <Logger name="org.hibernate" level="warn" additivity="false">
+            <AppenderRef ref="hibernate"/>
+        </Logger>
+        <Logger name="org.elasticsearch" level="warn" additivity="false">
+            <AppenderRef ref="elasticsearch"/>
+        </Logger>
+        <Logger name="com.alibaba.rocketmq" level="warn" additivity="false">
+            <AppenderRef ref="rocketmq"/>
+        </Logger>
+    </Loggers>
+</Configuration>
