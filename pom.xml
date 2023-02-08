@@ -34,6 +34,7 @@
         <tlog.version>1.5.0</tlog.version>
         <log4j.version>2.17.1</log4j.version>
         <lombok.version>1.18.24</lombok.version>
+        <curator-recipes.version>2.5.0</curator-recipes.version>
     </properties>
 
     <dependencyManagement>
@@ -136,6 +137,22 @@
                 <version>${lombok.version}</version>
             </dependency>
 
+            <!--distribution lock-->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator-recipes.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
@@ -149,6 +166,8 @@
                 <version>${spring.test.version}</version>
                 <scope>test</scope>
             </dependency>
+
+
 
         </dependencies>
 

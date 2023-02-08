@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2016-2020 1HAITAO.COM. All rights reserved.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       default-lazy-init="false"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:lock.properties" ignore-unresolvable="true"/>
+
+    <!-- ======================================= maven dependency ======================================= -->
+
+    <bean class="com.disney.teams.locker.distribution.factory.ZkLockFactory" init-method="init">
+        <property name="zkServers" value="${zk.servers}"/>
+        <property name="zkPath" value="${zk.lock.path}"/>
+        <property name="connectionTimeoutMs" value="${zk.sessionTimeoutMs}"/>
+        <property name="sessionTimeoutMs" value="${zk.connectionTimeoutMs}"/>
+    </bean>
+
+</beans>

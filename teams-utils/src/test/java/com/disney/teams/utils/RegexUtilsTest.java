@@ -83,4 +83,11 @@ public class RegexUtilsTest {
         String t = RegexUtils.replace(text, "(9)(3)(8)", (groupText, groupIndex) -> groupText + replacement[groupIndex - 1]);
         System.out.println(t);
     }
+
+    @Test
+    public void test(){
+
+    }
+
+
 }

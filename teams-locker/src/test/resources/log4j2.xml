@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2016-2020 1HAITAO.COM. All rights reserved.
+  -->
+<Configuration status="warn" name="yht" packages="com.yhtframework.log">
+    <Appenders>
+        <Console name="console">
+            <DefaultLayout />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+        <Logger name="okhttp3.OkHttpClient" level="warn" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
