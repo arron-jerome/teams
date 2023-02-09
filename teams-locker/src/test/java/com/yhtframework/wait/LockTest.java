@@ -24,6 +24,7 @@ public class LockTest extends AbstractJUnit4SpringContextTests{
     @Autowired
     private ILockFactory lockFactory;
 
+
     @Test
     public void lockAndUnlock(){
         final String uuid = "aaa";

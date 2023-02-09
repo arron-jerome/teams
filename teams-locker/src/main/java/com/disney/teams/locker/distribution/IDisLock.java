@@ -4,7 +4,6 @@ import com.disney.teams.locker.ILock;
 
 /**
  * @author arron.zhou
- * @email arron.zhou@disney.com
  * @date 2023/2/8
  * Modification  History:
  * Date         Author        Version        Description

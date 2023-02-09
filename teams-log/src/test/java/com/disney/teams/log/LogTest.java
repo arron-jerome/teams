@@ -9,7 +9,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 /**
  * @author arron.zhou
  * @version 1.0
- * @email arron.zhou@disney.com
  * @date 2022/12/22
  * Modification  History:
  * Date         Author        Version        Description
